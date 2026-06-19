@@ -4,7 +4,11 @@
 #
 msgid ""
 msgstr ""
+<<<<<<< HEAD
 "Project-Id-Version: Odoo Server 19.0\n"
+=======
+"Project-Id-Version: Odoo Server 18.0\n"
+>>>>>>> 85ac3f848d94830d4532ec7b356e030d1eebd402
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -50,6 +54,7 @@ msgid "Defines object used to group invoice lines"
 msgstr ""
 
 #. module: account_invoice_section_sale_order
+<<<<<<< HEAD
 #: model:ir.model.fields,field_description:account_invoice_section_sale_order.field_account_move__display_name
 #: model:ir.model.fields,field_description:account_invoice_section_sale_order.field_account_move_line__display_name
 #: model:ir.model.fields,field_description:account_invoice_section_sale_order.field_res_company__display_name
@@ -60,6 +65,8 @@ msgid "Display Name"
 msgstr ""
 
 #. module: account_invoice_section_sale_order
+=======
+>>>>>>> 85ac3f848d94830d4532ec7b356e030d1eebd402
 #: model:ir.model.fields.selection,name:account_invoice_section_sale_order.selection__res_company__invoice_section_grouping__sale_order
 msgid "Group by sale Order"
 msgstr ""
@@ -70,6 +77,7 @@ msgid "Grouping object"
 msgstr ""
 
 #. module: account_invoice_section_sale_order
+<<<<<<< HEAD
 #: model:ir.model.fields,field_description:account_invoice_section_sale_order.field_account_move__id
 #: model:ir.model.fields,field_description:account_invoice_section_sale_order.field_account_move_line__id
 #: model:ir.model.fields,field_description:account_invoice_section_sale_order.field_res_company__id
@@ -80,6 +88,8 @@ msgid "ID"
 msgstr ""
 
 #. module: account_invoice_section_sale_order
+=======
+>>>>>>> 85ac3f848d94830d4532ec7b356e030d1eebd402
 #: model:ir.model.fields,field_description:account_invoice_section_sale_order.field_res_company__invoice_section_grouping
 #: model:ir.model.fields,field_description:account_invoice_section_sale_order.field_res_config_settings__invoice_section_grouping
 msgid "Invoice Section Grouping"
@@ -126,8 +136,12 @@ msgstr ""
 msgid ""
 "This is the name of the sections on invoices when generated from sales "
 "orders. Keep empty to use default. You can use a python expression with the "
+<<<<<<< HEAD
 "'object' (representing sale order) and 'time' variables. For a fixed text, "
 "quote it, for example 'Group'."
+=======
+"'object' (representing sale order) and 'time' variables."
+>>>>>>> 85ac3f848d94830d4532ec7b356e030d1eebd402
 msgstr ""
 
 #. module: account_invoice_section_sale_order

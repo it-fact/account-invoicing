@@ -1,7 +1,13 @@
 # Copyright 2024 Camptocamp SA
+<<<<<<< HEAD
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
 from odoo.fields import Command
+=======
+# Copyright 2026 Michael Tietz (MT Software) <mtietz@mt-software.de>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
+
+>>>>>>> 85ac3f848d94830d4532ec7b356e030d1eebd402
 from odoo.tests import tagged
 
 from .common import Common
@@ -48,7 +54,11 @@ class TestAccessRights(Common):
                 "name": "Create Only User",
                 "login": "createonlyuser@example.com",
                 "group_ids": [
+<<<<<<< HEAD
                     Command.set((cls.create_only_group | cls.sale_manager_group).ids),
+=======
+                    (6, 0, (cls.create_only_group | cls.sale_manager_group).ids),
+>>>>>>> 85ac3f848d94830d4532ec7b356e030d1eebd402
                 ],
             }
         )

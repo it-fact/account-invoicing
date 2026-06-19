@@ -1,9 +1,16 @@
 # Copyright 2020 Camptocamp SA
+<<<<<<< HEAD
+=======
+# Copyright 2026 Michael Tietz (MT Software) <mtietz@mt-software.de>
+>>>>>>> 85ac3f848d94830d4532ec7b356e030d1eebd402
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 from unittest import mock
 
 from odoo.exceptions import UserError
+<<<<<<< HEAD
 from odoo.fields import Domain
+=======
+>>>>>>> 85ac3f848d94830d4532ec7b356e030d1eebd402
 
 from .common import Common
 
@@ -21,11 +28,19 @@ class TestInvoiceGroupBySaleOrder(Common):
                 "".join([self.order1_p1.name, " - ", self.order1_p1.client_order_ref]),
                 "line_section",
             ),
+<<<<<<< HEAD
             20: (f"{self.product_1.name}\norder 1 line 1", "product"),
             30: (f"{self.product_2.name}\norder 1 line 2", "product"),
             40: (self.order2_p1.name, "line_section"),
             50: (f"{self.product_1.name}\norder 2 line 1", "product"),
             60: (f"{self.product_2.name}\norder 2 line 2", "product"),
+=======
+            20: (f"{self.product_a.name}\norder 1 line 1", "product"),
+            30: (f"{self.product_b.name}\norder 1 line 2", "product"),
+            40: (self.order2_p1.name, "line_section"),
+            50: (f"{self.product_a.name}\norder 2 line 1", "product"),
+            60: (f"{self.product_b.name}\norder 2 line 2", "product"),
+>>>>>>> 85ac3f848d94830d4532ec7b356e030d1eebd402
         }
         invoice_ids = (self.order1_p1 + self.order2_p1)._create_invoices()
         lines = invoice_ids[0].invoice_line_ids.sorted("sequence")
@@ -43,9 +58,13 @@ class TestInvoiceGroupBySaleOrder(Common):
 
     def test_create_invoice_with_default_journal(self):
         """Using a specific journal for the invoice should not be broken"""
+<<<<<<< HEAD
         journal = self.env["account.journal"].search(
             Domain("type", "=", "sale"), limit=1
         )
+=======
+        journal = self.env["account.journal"].search([("type", "=", "sale")], limit=1)
+>>>>>>> 85ac3f848d94830d4532ec7b356e030d1eebd402
         (self.order1_p1 + self.order2_p1).with_context(
             default_journal_id=journal.id
         )._create_invoices()
@@ -62,6 +81,7 @@ class TestInvoiceGroupBySaleOrder(Common):
         )
         self.assertEqual(len(line_sections), 0)
 
+<<<<<<< HEAD
     def test_custom_name_scheme_literal(self):
         """Check that a quoted literal can be used as section name."""
         self.partner_1.invoice_section_name_scheme = "'Group'"
@@ -71,6 +91,8 @@ class TestInvoiceGroupBySaleOrder(Common):
         ).sorted("sequence")
         self.assertEqual(sections.mapped("name"), ["Group", "Group"])
 
+=======
+>>>>>>> 85ac3f848d94830d4532ec7b356e030d1eebd402
     def test_unknown_invoice_section_grouping_value(self):
         """Check an error is raised when invoice_section_grouping value is
         unknown
@@ -91,10 +113,18 @@ class TestInvoiceGroupBySaleOrder(Common):
         By mocking account.move.line_get_section_grouping and creating
         res.users.get_invoice_section_name, this test ensures custom grouping
         is possible by redefining these functions"""
+<<<<<<< HEAD
         admin_user = self.env.ref("base.user_admin")
         orders = self.order1_p1 + self.order2_p1
         orders.write({"user_id": admin_user.id})
         sale_order_3 = self.order1_p1.copy({"user_id": self.user_demo.id})
+=======
+        demo_user = self.env["res.users"].search([("login", "=", "demo")])
+        admin_user = self.env.ref("base.user_admin")
+        orders = self.order1_p1 + self.order2_p1
+        orders.write({"user_id": admin_user.id})
+        sale_order_3 = self.order1_p1.copy({"user_id": demo_user.id})
+>>>>>>> 85ac3f848d94830d4532ec7b356e030d1eebd402
         sale_order_3.order_line[0].name = "order 3 line 1"
         sale_order_3.order_line[1].name = "order 3 line 2"
         sale_order_3.action_confirm()
@@ -110,6 +140,7 @@ class TestInvoiceGroupBySaleOrder(Common):
             invoice = (orders + sale_order_3)._create_invoices()
             result = {
                 10: ("Mocked value from ResUsers", "line_section"),
+<<<<<<< HEAD
                 20: (f"{self.product_1.name}\norder 1 line 1", "product"),
                 30: (f"{self.product_2.name}\norder 1 line 2", "product"),
                 40: (f"{self.product_1.name}\norder 2 line 1", "product"),
@@ -117,6 +148,15 @@ class TestInvoiceGroupBySaleOrder(Common):
                 60: ("Mocked value from ResUsers", "line_section"),
                 70: (f"{self.product_1.name}\norder 3 line 1", "product"),
                 80: (f"{self.product_2.name}\norder 3 line 2", "product"),
+=======
+                20: (f"{self.product_a.name}\norder 1 line 1", "product"),
+                30: (f"{self.product_b.name}\norder 1 line 2", "product"),
+                40: (f"{self.product_a.name}\norder 2 line 1", "product"),
+                50: (f"{self.product_b.name}\norder 2 line 2", "product"),
+                60: ("Mocked value from ResUsers", "line_section"),
+                70: (f"{self.product_a.name}\norder 3 line 1", "product"),
+                80: (f"{self.product_b.name}\norder 3 line 2", "product"),
+>>>>>>> 85ac3f848d94830d4532ec7b356e030d1eebd402
             }
             for line in invoice.invoice_line_ids.sorted("sequence"):
                 if line.sequence not in result:

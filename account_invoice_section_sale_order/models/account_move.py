@@ -1,4 +1,8 @@
 # Copyright 2021 Camptocamp SA
+<<<<<<< HEAD
+=======
+# Copyright 2026 Michael Tietz (MT Software) <mtietz@mt-software.de>
+>>>>>>> 85ac3f848d94830d4532ec7b356e030d1eebd402
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
 from odoo import api, models
 from odoo.exceptions import UserError
